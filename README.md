@@ -46,6 +46,7 @@ Before analyzing each architecture in detail, first complete a coverage audit of
 - [27 — Controlled belief revision benchmark](27-controlled-belief-revision-benchmark.md) — compare belief-update strategies under controlled, repeatable conditions before choosing a revision mechanism.
 - [28 — Supplied-list reconciliation and missing variants](28-supplied-list-reconciliation-and-missing-variants.md) — compares the user's candidate list against existing coverage, records newly explicit variants, separates architecture/training/inference/memory/system axes, and marks unsourced claims as unverified.
 - [29 — Second-pass architecture search (2025–2026)](29-second-pass-architecture-search-2025-2026.md) — adds recent component redesigns, hybrid/recurrent variants, sparse-attention methods, and energy-based/modular-expert candidates from a fresh source search.
+- [30 — Deep dive 01: Transformer family and decoder-only GPT](30-deep-dive-01-transformer-decoder-only-gpt.md) — establishes the baseline architecture, variants, strengths/weaknesses, CPU-first fit, and a fair comparison protocol.
 
 ## Evidence labels
 

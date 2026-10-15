@@ -258,6 +258,45 @@ Sources:
 Source:
 - ICML 2026 paper: https://proceedings.mlr.press/v306/freinschlag26a.html
 
+
+
+## 20. ArcMemo: lifelong concept-level memory for reasoning
+
+**Core idea:** distill reusable, modular concepts from successful or attempted reasoning traces, store them in external memory, and selectively retrieve relevant concepts for later tasks. This is deliberately different from storing exact question-answer pairs or summaries tied to one original problem.
+
+**Why it matters:** it is closely aligned with our requirement that the system learn from experience without updating a large model's weights. It suggests a practical test: after solving one graph scenario, store the generalizable procedure and see whether it helps with a new scenario that shares the structure but changes entities and surface wording.
+
+**Reported scope and caveats:** the 2025 preprint reports a 7.5% relative gain over its no-memory baseline on ARC-AGI, with gains scaling with inference compute and dynamic memory updates outperforming an otherwise similar fixed-memory setup. The results are specific to its LLM and ARC pipeline; concept memories can also accumulate incorrect or overgeneralized lessons and need provenance, confidence, and contradiction checks.
+
+Sources:
+- Paper: https://arxiv.org/abs/2509.04439
+- Code: https://github.com/matt-seb-ho/arc_memo
+- ICLR 2026 presentation/page: https://lacuna.tiptreesystems.com/work/arcmemo-abstract-reasoning-composition-with-lifelong-llm-memory/wrk_fa6c0c436d3049bd55cb2f96d3f42e1b
+
+## 21. SOAR: self-improving evolutionary program synthesis
+
+**Core idea:** alternate between searching over candidate programs (sample, mutate/refine, evaluate) and learning from the search history. Successful attempts are converted into additional problem-solution training examples, improving the model's future proposal and refinement behavior.
+
+**Why it matters:** this is a concrete self-improvement loop with external verification, not a claim that a model spontaneously becomes smarter. It could inspire an offline learning pipeline for our assistant: generate candidate rules/programs, execute them against tests, preserve verified solutions, and train or update the proposal mechanism.
+
+**Caveats:** the published result is for ARC-AGI and relies on LLM sampling plus fine-tuning; the public headline of 52% is specific to the paper's benchmark/setup and is not a CPU-only result. Fine-tuning and evolutionary search can be expensive. For our system, start with deterministic procedure synthesis and test-driven memory updates before considering weight updates.
+
+Sources:
+- ICML 2025 paper: https://proceedings.mlr.press/v267/pourcel25a.html
+- Code: https://github.com/flowersteam/SOAR
+
+## 22. CompressARC: minimum-description-length search at test time
+
+**Core idea:** solve a new puzzle by searching for a compact program/description that explains the puzzle's input-output examples, optimizing description length for that individual task instead of relying on conventional pretraining.
+
+**Why it matters:** this tests the hypothesis that a reusable program language plus a simplicity prior can solve some unfamiliar tasks from their examples. The principle of choosing a compact explanation is relevant to avoiding ad hoc rules in our graph system.
+
+**Caveats:** the reported model is tiny (76K parameters) and reports solving 20% of ARC-AGI-1 evaluation puzzles in its paper, but this is achieved through test-time optimization on each puzzle, not a free single-pass answer. Per-instance search cost, puzzle-specific bias, and broader transfer need scrutiny. It is not a general language assistant.
+
+Source:
+- Paper: https://arxiv.org/abs/2512.06104
+- ARC Prize 2025 competition/results context: https://arcprize.org/competitions/2025
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

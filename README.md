@@ -37,6 +37,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [22 — Memory consolidation, retrieval experience, and computation reuse](22-memory-consolidation-retrieval-experience-and-computation-reuse.md)
 - [23 — Reusable reasoning modules, latent primitives, and computation reuse](23-reusable-reasoning-modules-latent-primitives-and-computation-reuse.md)
 - [24 — Automatic procedure discovery, program synthesis, proof-state reuse, and safe recomputation](24-automatic-procedure-discovery-program-synthesis-and-safe-reuse.md)
+- [25 — Self-maintaining skill libraries: evaluation, repair, and pruning](25-self-maintaining-skill-libraries-evaluation-repair-and-pruning.md)
 
 ## Evidence labels
 

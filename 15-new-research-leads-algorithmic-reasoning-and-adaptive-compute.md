@@ -224,6 +224,40 @@ For our project, create matched tests where a graph rule or learned skill works 
 Source:
 - Compositional Generalization and Decomposition in Neural Program Synthesis: https://arxiv.org/abs/2204.03758
 
+
+
+## 18. Hierarchical Reasoning Model (HRM) and Tiny Recursive Model (TRM)
+
+**Core idea:** reuse a small neural network recurrently to refine a latent state and answer over multiple computation steps, rather than increasing model depth or generating a long natural-language chain of thought. HRM uses two interdependent recurrent modules operating at different timescales; TRM simplifies the design to one small two-layer network that repeatedly updates a latent state and candidate answer.
+
+**Why it matters:** these are concrete recent examples of parameter-efficient learned iterative computation. They are more directly relevant to compact reasoning than a generic claim that “recurrence is efficient,” and worth testing on CPU as specialist reasoning modules.
+
+**Reported results and essential caveats:**
+- HRM reports 27M parameters and strong results on selected Sudoku, maze, and ARC tasks.
+- TRM reports about 7M parameters, around 45% on ARC-AGI-1, around 8% on ARC-AGI-2, and strong results on Sudoku-Extreme in its evaluated setup.
+- These are specialized visual/grid reasoning tasks, not general language dialogue. Training and augmentation costs can be substantial despite small parameter count.
+- Test-time augmentation and majority voting materially affect some reported TRM scores; an independent analysis reports that task identity and test-time compute matter, and that effective recursion may be shallower than the architecture suggests. Do not interpret the benchmark headline as proof of general intelligence or CPU speed.
+
+Sources:
+- HRM paper: https://arxiv.org/abs/2506.21734
+- TRM paper: https://arxiv.org/abs/2510.04871
+- Official TRM code: https://github.com/SamsungSAILMontreal/TinyRecursiveModels
+- Independent analysis of TRM: https://arxiv.org/abs/2512.11847
+- ARC Prize 2025 results and methodology: https://arcprize.org/blog/arc-prize-2025-results-analysis
+
+## 19. Symbol-Equivariant Recurrent Reasoning Models (SE-RRM)
+
+**Core idea:** encode symbol/color permutation symmetry directly in the recurrent reasoning architecture, rather than relying only on data augmentation to teach the model that renaming symbols should not change the abstract solution.
+
+**Why it matters:** our graph reasoning should be invariant to arbitrary entity names and symbols. The principle of building the right symmetry into the architecture could reduce training examples and prevent shortcut learning.
+
+**Reported scope:** an ICML 2026 paper reports 2M-parameter models competitive on ARC-AGI-1/2 and better extrapolation across Sudoku sizes (from 9×9 to 4×4, 16×16, and 25×25) than prior recurrent reasoning models in its experiments.
+
+**Limits:** this is evidence in structured symbol/visual puzzles. The transfer to natural-language entities, ambiguous references, or causal graph reasoning remains untested. It is worth borrowing the invariance principle before assuming the entire architecture is suitable.
+
+Source:
+- ICML 2026 paper: https://proceedings.mlr.press/v306/freinschlag26a.html
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

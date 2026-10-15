@@ -110,6 +110,44 @@ Sources:
 - Are Object-Centric Representations Better at Compositional Generalization? (ICML 2026): https://proceedings.mlr.press/v306/kapl26b.html
 - Visual reasoning in object-centric deep neural networks (2025): https://doi.org/10.1016/j.neunet.2025.107582
 
+
+
+## 9. Classical integrated cognitive architectures: ACT-R, Soar, CLARION, LIDA, ICARUS, NARS
+
+These are not neural-network layer families; they are **whole-system designs** for coordinating working memory, long-term memory, goals, rules/procedures, learning, attention, planning, and action. Examples include ACT-R, Soar, CLARION, LIDA, ICARUS, and NARS; BDI and subsumption architectures are related approaches for agents.
+
+**Why they matter:** our project is ultimately a complete intellectual assistant, not merely a new sequence model. These architectures may offer tested design patterns for the control cycle, working vs episodic/semantic memory, goal management, and learning from experience.
+
+**Risks:** many are older research systems with domain-specific assumptions, and their inclusion does not imply modern language-model quality. Study the mechanisms and reusable principles rather than assuming the full framework should be adopted wholesale.
+
+Sources:
+- Integrated cognitive architectures survey: https://doi.org/10.1007/S10462-009-9094-9
+- ACT-R vs Soar analysis: https://arxiv.org/abs/2201.09305
+- Autonomous learning in cognitive architectures: https://doi.org/10.1016/j.newideapsych.2014.03.002
+
+## 10. Neural Language Interpreter (NLI): learning a small executable language
+
+**Core idea:** the ICLR 2026 paper *Gradient-Based Program Synthesis with Neurally Interpreted Languages* proposes learning a discrete, symbolic-like vocabulary of primitive operations and a differentiable neural executor that interprets variable-length sequences of those operations.
+
+**Why it matters:** this directly targets the tension between symbolic program synthesis (compositional, but often requires a designed DSL) and neural models (flexible, but can generalize poorly). A learned compact operation language is conceptually relevant to reusable procedures in the assistant.
+
+**Risks:** this is a specific research result, not evidence that a tiny learned interpreter can replace a language model. Check the task scope, training setup, code, generalization tests, and runtime before considering an implementation.
+
+Source:
+- ICLR 2026 paper: https://proceedings.iclr.cc/paper_files/paper/2026/hash/c9cde817d04811ba28e44071bd9f76a5-Abstract-Conference.html
+
+## 11. Conditional Neural Processes (CNPs) and fast function adaptation
+
+**Core idea:** a model learns to infer a predictive function from a small set of observed examples at inference time. CNPs were developed partly as a scalable alternative to Gaussian-process-style few-shot prediction.
+
+**Why it matters:** as a possible mechanism for quickly adapting a predictor to a new task or small dataset without retraining a large model. Evidential variants also explicitly investigate separating sources of predictive uncertainty.
+
+**Risks:** the canonical work focuses on regression, classification, and related function-prediction tasks—not open-domain language reasoning. Treat it as a specialist adaptation/uncertainty family, not a replacement language core.
+
+Sources:
+- Conditional Neural Processes: https://proceedings.mlr.press/v80/garnelo18a.html
+- Evidential Conditional Neural Processes: https://doi.org/10.1609/aaai.v37i8.26125
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

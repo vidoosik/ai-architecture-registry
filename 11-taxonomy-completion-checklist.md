@@ -7,11 +7,11 @@ This checklist helps avoid quietly dropping architecture families from the maste
 - [ ] Encoder-only / BERT
 - [ ] Encoder–decoder / T5
 - [ ] Prefix LM and denoising objectives
-- [ ] MHA, MQA, GQA, MLA; NoPE/hybrid NoPE-RoPE
+- [ ] MHA, MQA, GQA, MLA; NoPE/hybrid NoPE-RoPE; DAPE V2/CDAPE positional-score processing; SAS simulated attention scores
 - [ ] MTP objective vs multi-token decoding; MoE vs MoD vs MoR
 - [ ] Byte-level models: BLT (BLT-D/BLT-S/BLT-DV), MegaByte
 - [ ] Local, sparse, linear, approximate attention: Performer/FAVOR+, Linformer, Nyströmformer, Reformer/LSH, cosFormer, AFT
-- [ ] NSA/DSA, MoBA, Infini-attention, YOCO, SubQ/SSA (source verification required)
+- [ ] NSA/DSA, MoBA, Infini-attention, YOCO, Gated Sparse Attention (GSA), Hierarchical Sparse Attention (HSA), Evolving Sparsity, RetroAttention, BA-Att, SubQ/SSA (source verification required)
 - [ ] FlashAttention (kernel optimization)
 - [ ] Transformer-XL, Compressive Transformer, RMT
 - [ ] Memorizing Transformer, kNN-LM, RAG
@@ -19,7 +19,7 @@ This checklist helps avoid quietly dropping architecture families from the maste
 - [ ] QRNN, SRU, ESN/reservoir
 - [ ] RWKV versions (including RWKV-6 Finch / RWKV-7 Goose), RetNet, LRU, H3
 - [ ] Megalodon/MEGA, gMLP, T-LM/Toeplitz LM, Monarch Mixer
-- [ ] Jamba, Bamba, Mamba-2-Hybrid, Hymba, Zamba-2, SAMBA, Hawk/RecurrentGemma
+- [ ] Jamba, Bamba, Mamba-2-Hybrid, Hymba, Zamba-2, SAMBA, Hawk/RecurrentGemma, Decoder-Hybrid-Decoder/SambaY, Latent Recurrent Transformer (LRT)
 - [ ] S4/S4D/DSS/S5/HiPPO
 - [ ] Mamba/Mamba-2, HGRN/HGRN2, Mega, Griffin, xLSTM
 - [ ] Hyena, GLA, Based, MVA, Gated DeltaNet, DeltaStack
@@ -52,7 +52,7 @@ This checklist helps avoid quietly dropping architecture families from the maste
 ## Learning and alternative computation
 - [ ] Autoencoders, VAE, VQ-VAE, contrastive learning, MAE
 - [ ] JEPA, LCM, predictive coding, inference learning, active inference
-- [ ] Energy-based models, EBT, Boltzmann machines/RBM, score-based models
+- [ ] Energy-based models, EBT, NR-GPT/eNeRgy-GPT, Boltzmann machines/RBM, score-based models
 - [ ] BDH/Dragon Hatchling, CTM, SpikingBrain (source-backed named entries required)
 - [ ] Deep Equilibrium Models, Neural ODE/CDE
 - [ ] Hebbian/Oja, equilibrium propagation, Forward-Forward
@@ -75,6 +75,7 @@ This checklist helps avoid quietly dropping architecture families from the maste
 ## Compression and systems
 - [ ] FP16/BF16/FP8/INT8/INT4/INT2, GPTQ/AWQ/SmoothQuant/QAT
 - [ ] BitNet/BitLinear/ternary, pruning, low-rank, weight sharing, distillation, LoRA
+- [ ] MoE routing variants: KERN; modular expert paths (MoEP); normalization/residual updates: GeoNorm
 - [ ] KV cache compression/offload, speculative decoding, prefix caching, early exit
 - [ ] CPU SIMD/cache blocking, memory mapping, GPU/CPU offload
 - [ ] DirectML, Vulkan, CUDA, Metal, XLA, TVM, MLIR

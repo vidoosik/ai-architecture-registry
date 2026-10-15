@@ -30,6 +30,8 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [16 — Further architecture leads: diffusion, reservoirs, spiking, adaptive compute](16-further-architecture-leads-diffusion-reservoir-spiking-adaptive-compute.md)
 - [17 — Equilibrium models, associative memory, VSA, and active inference](17-equilibrium-associative-memory-vsa-active-inference.md)
 
+- [18 — Formal reasoning, hypernetworks, meta-learning, sparse memory, and local learning](18-formal-reasoning-hypernetworks-meta-learning-sdm-local-learning.md)
+
 ## Evidence labels
 
 - **Established:** known architecture or technique with published work.

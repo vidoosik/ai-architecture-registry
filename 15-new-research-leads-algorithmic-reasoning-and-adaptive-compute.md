@@ -314,3 +314,65 @@ Do not infer that any of these is smaller or faster than a standard small Transf
 - Conditional computation was already listed; Universal Transformer/ACT/PonderNet make shared recurrent depth and learned halting more explicit.
 - Predictive coding was already listed; Predictive State Representations are a distinct formalism and must not be merged with it.
 - Generalization was already a project-wide criterion; inductive reasoning is added as a separate capability to test.
+
+
+## 23. Symmetry and inductive bias: make irrelevant changes irrelevant
+
+**Core idea:** design the representation or update rule so transformations that should preserve the answer (renaming symbols, permuting colors, reordering a set, relabeling graph nodes) do not require the model to relearn the same solution. Invariance means the output stays the same; equivariance means the output transforms predictably with the input.
+
+**SE-RRM evidence:** the ICML 2026 paper encodes symbol/color permutation equivariance in recurrent reasoning layers. It reports competitive ARC-AGI-1/2 results with 2M parameters and extrapolation between Sudoku sizes (trained on 9×9, tested on 4×4, 16×16, and 25×25) in its experimental setting.
+
+**Implication for our graph:** entity names should be identifiers, not reasoning features. Tests should rename every entity, permute relation order, reorder facts, and change arbitrary colors/labels while preserving graph structure. The conclusion and explanation structure should remain equivalent. Do not assume SE-RRM itself solves language understanding or causal reasoning; the transferable lesson is the architectural bias and test protocol.
+
+**Risks:** only enforce a symmetry when it is valid for the task. Time order, direction of a relation, role labels, or different entity types may be semantically meaningful and must not be arbitrarily permuted.
+
+Sources:
+- SE-RRM paper (ICML 2026): https://proceedings.mlr.press/v306/freinschlag26a.html
+- Official implementation: https://github.com/ml-jku/SE-RRM
+
+## 24. Evolutionary program synthesis and verified self-improvement
+
+**Core idea:** maintain a population or stream of candidate programs/rules; propose variants, execute them against an evaluator, discard failures, retain and recombine successful candidates, and optionally train the proposal mechanism on the search history. This is a process architecture, not a single neural-network layer.
+
+**Distinct examples already found:**
+- **DreamCoder / library learning:** search for programs and factor recurring subprograms into a reusable domain-specific library; a neural search policy and the library improve together. Useful for converting repeated successful reasoning into compact skills.
+- **SOAR:** an ARC-focused loop combining candidate generation/refinement, evaluation, and learning from attempts. Its reported benchmark performance depends on the paper's LLM, search, and fine-tuning setup; it is not a CPU-only result.
+- **AlphaEvolve:** an LLM-based evolutionary coding agent that proposes code changes and uses one or more evaluators to iteratively improve algorithms. The 2025 report and 2026 follow-up describe applications to algorithmic/scientific discovery and infrastructure optimization. This is evidence for the search-and-evaluate loop in selected domains, not evidence that an autonomous agent can safely invent arbitrary world rules.
+- **CompressARC:** a related but distinct minimum-description-length search approach that optimizes a compact program for each ARC task at test time; small parameter count does not remove per-task search cost.
+
+**What transfers to our project:** begin with offline rule/program candidates over a constrained DSL. Run every candidate against positive cases, counterexamples, exception tests, and held-out compositions. Promote a rule only when it passes, keep its evidence and provenance, and preserve rollback. Separate (a) discovering a candidate, (b) verifying it, and (c) storing it as reusable knowledge. Never allow a candidate to silently overwrite a previously trusted fact.
+
+**Main costs and failure modes:** candidate search can be expensive; evaluators can be incomplete; overfitting to the test suite can masquerade as discovery; LLM-proposed code may be invalid or unsafe. Record search budget, number of candidates, verifier coverage, regressions, wall-clock time, and RAM. For our CPU-first project, this is primarily an offline learning pipeline, not something to run on every user query.
+
+Sources:
+- DreamCoder: https://doi.org/10.1145/3453483.3454080
+- Bayesian Program Learning by Decompiling Amortized Knowledge (ICML 2024): https://proceedings.mlr.press/v235/palmarini24a.html
+- SOAR (ICML 2025): https://proceedings.mlr.press/v267/pourcel25a.html
+- AlphaEvolve report: https://arxiv.org/abs/2506.13131
+- AlphaEvolve results repository: https://github.com/google-deepmind/alphaevolve_results
+- CompressARC: https://arxiv.org/abs/2512.06104
+
+## 25. Neural Cellular Automata (NCA) and decentralized self-organization
+
+**Core idea:** a system is represented as many local cells, each holding a small state vector. At each step, a cell updates its state using a shared learned rule and information from a local neighborhood. Repeated local interactions can produce a global pattern or behavior without a single central controller directing every part.
+
+**What is established:** NCA is an established research family for self-organizing pattern growth, regeneration-like dynamics, image synthesis, and distributed control. Reviews published in 2026 discuss applications across biology, robotics, and machine learning; recent work also explores reasoning-like puzzle tasks. A 2026 TMLR review provides a unified modular framework and reference implementation, NCAtorch.
+
+**Why it is interesting here:** it is a different hypothesis from the explicit graph core. Local units could iteratively exchange compact messages to settle a state, propagate constraints, or coordinate specialist processes. This may offer a useful experimental model for distributed constraint propagation, but it is not yet evidence that NCA is a better general-purpose reasoning engine than a graph with explicit rules.
+
+**Risks:** global behavior can be hard to interpret; convergence and robustness are not guaranteed; local rules may require many update steps; scaling and training costs vary by task. A grid-based NCA is not automatically appropriate for a semantic world graph. A graph-NCA variant would need to define neighborhoods, message/state semantics, stopping criteria, and how to preserve provenance and exceptions.
+
+**Minimal experiment:** encode each node as a small state vector and let only neighboring nodes exchange bounded messages. Compare against deterministic graph propagation on the same synthetic worlds: rule-chain depth, conflicting causes, hot/cold exception, unseen node names, and node-order permutations. Measure accuracy, steps to convergence, oscillations, CPU latency, and peak RAM. Keep this as a research branch until it beats the deterministic baseline on a defined metric.
+
+Sources:
+- Hartl, Levin & Pio-Lopez, *Neural cellular automata: Applications to biology and beyond classical AI*, Physics of Life Reviews (2026): https://pubmed.ncbi.nlm.nih.gov/41365104/
+- Spitznagel & Keuper, *A New Kind of Network? Review and Reference Implementation of Neural Cellular Automata*, TMLR (2026): https://openreview.net/pdf?id=NRwjj0ZLq0
+- NCAtorch reference implementation: https://github.com/mspitzna/NCAtorch
+- 2026 survey of NCA applications: https://arxiv.org/abs/2609.24595
+
+## Updated relevance for the compact CPU-first assistant
+
+1. **Apply now as test requirements:** name/symbol permutation, fact-order permutation, and graph-node relabeling tests. These are cheap and directly target shortcut learning.
+2. **Most promising learning mechanism to study:** constrained program/rule synthesis with a verifier and a growing library of proven reusable procedures. Run it offline first.
+3. **Exploratory architecture, not a replacement yet:** NCA-style local state updates on a graph. Compare with explicit graph propagation; do not presume that decentralized means faster or more intelligent.
+4. **Keep evidence separated:** reported paper benchmark results are not measurements on our hardware or on our graph-world project. Every local claim needs a reproducible test.

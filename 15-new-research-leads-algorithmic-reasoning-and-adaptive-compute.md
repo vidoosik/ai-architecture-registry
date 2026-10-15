@@ -85,6 +85,31 @@ For our system, this can mean deriving a graph conclusion with a trace, checking
 Research discovery index:
 - Reasoning generalization survey and taxonomy: https://github.com/tue09/awesome-reasoning-generalization
 
+
+
+## 7. Reusable neural modules and compositional skill routing
+
+**Core idea:** split behavior into reusable modules (for example, parse a subgoal, locate an object, move to a landmark, verify a result) and learn how to select and compose them for a new task. This is distinct from a conventional MoE that routes tokens to parameter experts: modules may represent explicit skills or stages of a procedure.
+
+**Why it matters:** the compact assistant could reuse small, testable procedures rather than solve every task from scratch. The graph can store facts and preconditions; a learned router or language model can choose which procedure to call; each procedure can return a result and evidence.
+
+**Evidence and caveats:** published work on modular instruction following reports better generalization to novel subgoal combinations in its ALFRED setting. A 2026 preprint proposes that reusable latent skills and routing mechanisms help explain compositional generalization in language-model reasoning. These results motivate experiments, but do not prove that manually modularizing our assistant will improve open-domain reasoning.
+
+Sources:
+- Modular Networks for Compositional Instruction Following: https://aclanthology.org/2021.naacl-main.81/
+- From Reasoning Traces to Reusable Modules (2026 preprint): https://arxiv.org/abs/2606.18089
+- Modular continual learning (2026): https://doi.org/10.1016/j.neucom.2026.135079
+
+## 8. Object-centric representation: evidence and limits
+
+Object-centric representations are already listed in the world-model section; the newer lead is the explicit empirical question of whether representing scenes as objects and relations actually improves compositional generalization under limited data and compute.
+
+A 2026 ICML paper reports that object-centric approaches perform better in harder unseen combinations of visual object properties in its tested visual QA settings and are more sample-efficient, while dense representations can catch up or win on easier settings or with more data. This is useful evidence for the general principle of explicit entity/property structure, but it is **visual-domain evidence**, not a direct result about text-only graph reasoning.
+
+Sources:
+- Are Object-Centric Representations Better at Compositional Generalization? (ICML 2026): https://proceedings.mlr.press/v306/kapl26b.html
+- Visual reasoning in object-centric deep neural networks (2025): https://doi.org/10.1016/j.neunet.2025.107582
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

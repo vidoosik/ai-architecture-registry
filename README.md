@@ -36,6 +36,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [21 — Depth-progressive learning, HKAN, and typed program synthesis](21-depth-progressive-learning-hkan-typed-program-synthesis.md)
 - [22 — Memory consolidation, retrieval experience, and computation reuse](22-memory-consolidation-retrieval-experience-and-computation-reuse.md)
 - [23 — Reusable reasoning modules, latent primitives, and computation reuse](23-reusable-reasoning-modules-latent-primitives-and-computation-reuse.md)
+- [24 — Automatic procedure discovery, program synthesis, proof-state reuse, and safe recomputation](24-automatic-procedure-discovery-program-synthesis-and-safe-reuse.md)
 
 ## Evidence labels
 

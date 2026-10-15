@@ -27,6 +27,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [13 — CPU/GPU backends and measured optimization](13-cpu-gpu-backends-and-measured-optimization.md)
 - [14 — Hybrid architecture hypotheses and test plan](14-hybrid-architecture-hypotheses-and-test-plan.md)
 - [15 — New research leads: algorithmic reasoning and adaptive computation](15-new-research-leads-algorithmic-reasoning-and-adaptive-compute.md)
+- [16 — Further architecture leads: diffusion, reservoirs, spiking, adaptive compute](16-further-architecture-leads-diffusion-reservoir-spiking-adaptive-compute.md)
 
 ## Evidence labels
 

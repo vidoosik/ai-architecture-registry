@@ -19,6 +19,9 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [06 — Generation, multimodal, agents, and planning](06-generation-multimodal-agents.md)
 - [07 — Compression, inference optimization, and hardware](07-compression-inference-hardware.md)
 - [08 — Source index and research leads](08-sources.md)
+- [09 — Overlooked architectures and research leads](09-overlooked-architectures-and-research-leads.md)
+- [10 — Candidate comparison and decision guide](10-candidate-comparison-and-decision-guide.md)
+- [11 — Taxonomy completion checklist](11-taxonomy-completion-checklist.md)
 
 ## Evidence labels
 
@@ -31,4 +34,8 @@ Explore architectures that could support grounded dialogue, compositional reason
 
 Do not equate fewer FLOPs with faster CPU inference; memory traffic, cache locality, SIMD, branching, model quality, and implementation overhead matter. Do not equate training speedups with inference speedups. Evaluate on held-out compositions and scenarios, not only training examples. Track latency, peak RAM, disk use, quality, uncertainty calibration, and failure modes.
 
-Last initialized: 2026-10-15. This is the initial consolidated registry from the research notes currently available; extend it rather than silently replacing prior findings.
+## Archive scope
+
+This is a consolidated research archive based on the research notes available in the conversation context. It is broader than the initial taxonomy, but it is not a guarantee that every line from every historical conversation has been recovered. Use the completion checklist to track source-backed coverage and add future discoveries without silently replacing earlier findings.
+
+Last expanded: 2026-10-15.

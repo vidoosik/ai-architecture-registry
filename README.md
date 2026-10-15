@@ -45,6 +45,7 @@ Before analyzing each architecture in detail, first complete a coverage audit of
 - [26 — Detecting false world models and revising beliefs](26-detecting-false-world-models-and-belief-revision.md) — belief revision, truth-maintenance dependencies, competing explanations, evidence-based self-correction, and tests for retracting wrong assumptions without stale conclusions or unnecessary revisions.
 - [27 — Controlled belief revision benchmark](27-controlled-belief-revision-benchmark.md) — compare belief-update strategies under controlled, repeatable conditions before choosing a revision mechanism.
 - [28 — Supplied-list reconciliation and missing variants](28-supplied-list-reconciliation-and-missing-variants.md) — compares the user's candidate list against existing coverage, records newly explicit variants, separates architecture/training/inference/memory/system axes, and marks unsourced claims as unverified.
+- [29 — Second-pass architecture search (2025–2026)](29-second-pass-architecture-search-2025-2026.md) — adds recent component redesigns, hybrid/recurrent variants, sparse-attention methods, and energy-based/modular-expert candidates from a fresh source search.
 
 ## Evidence labels
 

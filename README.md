@@ -48,6 +48,7 @@ Before analyzing each architecture in detail, first complete a coverage audit of
 - [29 — Second-pass architecture search (2025–2026)](29-second-pass-architecture-search-2025-2026.md) — adds recent component redesigns, hybrid/recurrent variants, sparse-attention methods, and energy-based/modular-expert candidates from a fresh source search.
 - [30 — Deep dive 01: Transformer family and decoder-only GPT](30-deep-dive-01-transformer-decoder-only-gpt.md) — establishes the baseline architecture, variants, strengths/weaknesses, CPU-first fit, and a fair comparison protocol.
 - [31 — Deep dive 02: Mixture of Experts (MoE)](31-deep-dive-02-mixture-of-experts-moe.md) — explains sparse routing, total vs active parameters, variants, trade-offs, and whether MoE fits a compact CPU-first system.
+- [32 — Deep dive 03: MHA, MQA, GQA and MLA](32-deep-dive-03-attention-mha-mqa-gqa-mla.md) — compares attention/KV-cache designs, memory formulas, trade-offs, CPU-first implications, and a controlled benchmark protocol.
 
 ## Evidence labels
 

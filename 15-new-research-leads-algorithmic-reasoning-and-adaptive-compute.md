@@ -148,6 +148,31 @@ Sources:
 - Conditional Neural Processes: https://proceedings.mlr.press/v80/garnelo18a.html
 - Evidential Conditional Neural Processes: https://doi.org/10.1609/aaai.v37i8.26125
 
+
+
+## 12. Global Workspace / blackboard coordination
+
+**Core idea:** many specialized processes operate in parallel or semi-independently; a limited shared workspace selects salient information and broadcasts it so other processes can use it. Blackboard architectures are a related classic pattern for integrating partial hypotheses from different specialist modules. LIDA and IDA are computational architectures inspired by Global Workspace Theory.
+
+**Why it matters:** this offers a possible control design for a hybrid assistant: graph inference, language interpretation, memory retrieval, planning, and verification can propose results, while a workspace selects what deserves attention and what should be broadcast to the rest of the system.
+
+**Risks:** this is a cognitive/control architecture, not a demonstrated recipe for machine consciousness or a proven route to better reasoning. A workspace can become a bottleneck or a noisy message bus unless selection, priority, and stopping rules are explicit.
+
+Sources:
+- Global Workspace Theory and IDA: https://doi.org/10.1016/j.neunet.2007.09.013
+- Global Workspace Theory and LIDA: https://doi.org/10.1016/j.bica.2012.04.001
+
+## 13. Bayesian program learning and compositional one-shot concept learning
+
+**Core idea:** infer a compact generative program or causal procedure that explains an example, then use that program to recognize or generate new examples. This differs from ordinary nearest-neighbor retrieval: the target is a reusable explanation/program that can compose known primitives.
+
+**Why it matters:** it is a useful research lens for learning a new concept from very few examples and generating valid new instances, potentially relevant to analogy and concept formation.
+
+**Risks:** classic demonstrations focused on constrained domains such as simple visual concepts; hand-designed priors and program spaces matter greatly. It is not a general open-domain language architecture and should be compared against simple baselines on held-out compositions.
+
+Source:
+- One-shot learning by inverting a compositional causal process: https://proceedings.neurips.cc/paper/2013/hash/52292e0c763fd027c6eba6b8f494d2eb-Abstract.html
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

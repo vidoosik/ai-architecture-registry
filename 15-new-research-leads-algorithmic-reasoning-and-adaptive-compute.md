@@ -173,6 +173,57 @@ Sources:
 Source:
 - One-shot learning by inverting a compositional causal process: https://proceedings.neurips.cc/paper/2013/hash/52292e0c763fd027c6eba6b8f494d2eb-Abstract.html
 
+
+
+## 14. Neural Programmer-Interpreter (NPI): learn to call reusable subprograms
+
+**Core idea:** one recurrent controller learns to select a program, pass arguments, inspect the current environment, and either call a lower-level subprogram or terminate. A persistent key-value memory stores program identities; execution traces supervise the sequence of calls.
+
+**Why it matters:** this is a concrete architecture for composing small procedures into larger ones. It is closer to a learned procedure controller than a standard language model and provides a testable way to reuse a skill across tasks.
+
+**Evidence and limits:** the original work demonstrated one model learning multiple compositional programs such as addition, sorting, and trajectory planning from pixels, with execution-trace supervision. This is a constrained task family, not proof of open-domain reasoning or easy unsupervised learning.
+
+Sources:
+- Paper: https://arxiv.org/abs/1511.06279
+- Reference implementation: https://github.com/siddk/npi
+
+## 15. DreamCoder and library learning: discover reusable abstractions
+
+DreamCoder combines program search with a learned neural search policy and a growing library of abstractions. In a wake phase it solves tasks; in a sleep phase it trains on imagined/replayed problems. Repeated structure in successful programs can be factored into reusable library functions, allowing later solutions to be expressed and searched for more efficiently.
+
+A 2024 follow-up, **Bayesian Program Learning by Decompiling Amortized Knowledge**, uses the neural search policy's learned biases to help discover useful library components, improving search efficiency and generalization in the evaluated synthesis domains.
+
+**Why it matters:** this is one of the most direct research leads for a system that gradually turns repeated successful reasoning patterns into compact reusable procedures instead of accumulating only examples.
+
+**Risks:** DreamCoder searches over programs in a chosen domain-specific language and is evaluated on constrained synthesis tasks. Library growth can also produce brittle abstractions if the domain grammar or examples are poor. It does not automatically learn unrestricted natural-language concepts.
+
+Sources:
+- DreamCoder (PLDI 2021): https://doi.org/10.1145/3453483.3454080
+- Overview: https://arxiv.org/abs/2006.08381
+- 2024 library-learning follow-up: https://proceedings.mlr.press/v235/palmarini24a.html
+
+## 16. BABBLE / library learning modulo theory: learn abstractions beyond surface syntax
+
+**Core idea:** extract reusable functions from a corpus of programs using e-graphs, equality saturation, anti-unification, and a domain-specific equational theory. Unlike purely syntactic pattern matching, this can discover shared abstractions among programs that look different but are equivalent under known rules.
+
+**Why it matters:** if our system learns or accumulates procedures, equivalent formulations should ideally converge on one reusable skill rather than create duplicate variants. This could also support simplifying and consolidating symbolic rules.
+
+**Important limitation:** BABBLE does not discover the truth of arbitrary real-world facts. It depends on a supplied equational theory and a corpus of candidate programs. Its published speedup concerns library-learning/compression in evaluated program domains, not language-model inference speed.
+
+Sources:
+- Paper: https://arxiv.org/abs/2212.04596
+- POPL 2023 publication and materials: https://ztatlock.net/pubs/2023-popl-babble/
+- Follow-up on decompiling amortized knowledge: https://proceedings.mlr.press/v235/palmarini24a.html
+
+## 17. A concrete benchmark axis: compositional program synthesis
+
+Beyond naming architectures, evaluate whether a learner can combine known subroutines into combinations never seen during training, generalize to longer programs, and transfer across input representations. The SCAN/RobustFill-based benchmark work explicitly separates these axes and finds that compositional generalization remains difficult even when a model improves over its baseline.
+
+For our project, create matched tests where a graph rule or learned skill works alone, then compose several known skills in a new order, with new entity names and distractor facts. Measure success, explanation trace, abstention when a precondition fails, and CPU cost.
+
+Source:
+- Compositional Generalization and Decomposition in Neural Program Synthesis: https://arxiv.org/abs/2204.03758
+
 ## Fit to the compact CPU-first project
 
 Initial relevance ranking for investigation, not a final model ranking:

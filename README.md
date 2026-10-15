@@ -35,6 +35,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [20 — Continuous-time attention, diffusion language generation, and local-credit learning](20-continuous-attention-diffusion-language-local-credit-learning.md)
 - [21 — Depth-progressive learning, HKAN, and typed program synthesis](21-depth-progressive-learning-hkan-typed-program-synthesis.md)
 - [22 — Memory consolidation, retrieval experience, and computation reuse](22-memory-consolidation-retrieval-experience-and-computation-reuse.md)
+- [23 — Reusable reasoning modules, latent primitives, and computation reuse](23-reusable-reasoning-modules-latent-primitives-and-computation-reuse.md)
 
 ## Evidence labels
 

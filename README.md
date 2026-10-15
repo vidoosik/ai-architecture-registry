@@ -28,6 +28,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [14 — Hybrid architecture hypotheses and test plan](14-hybrid-architecture-hypotheses-and-test-plan.md)
 - [15 — New research leads: algorithmic reasoning and adaptive computation](15-new-research-leads-algorithmic-reasoning-and-adaptive-compute.md)
 - [16 — Further architecture leads: diffusion, reservoirs, spiking, adaptive compute](16-further-architecture-leads-diffusion-reservoir-spiking-adaptive-compute.md)
+- [17 — Equilibrium models, associative memory, VSA, and active inference](17-equilibrium-associative-memory-vsa-active-inference.md)
 
 ## Evidence labels
 

@@ -1,0 +1,5 @@
+# 27 — Controlled belief revision benchmark
+
+Compare belief-update methods on identical synthetic worlds. Measure correction precision and recall, stale conclusions, collateral damage to correct facts, UNKNOWN calibration, oscillation, wall-clock time, peak RAM, and recomputation cost. Keep oracle-assisted and no-oracle experiments separate. Test wrong rules, conflicting source reliability, exceptions, multiple causes, context shifts, ambiguous evidence, independent facts that must survive retraction, and held-out entity combinations. Start with no revision, overwrite, full recomputation, and dependency-aware revision. Add step localization and competing-hypothesis tests after baselines are reliable. This is an evaluation plan, not an architecture selection.
+
+Sources: https://proceedings.mlr.press/v306/samanta26a.html ; https://arxiv.org/abs/2609.00455 ; https://www.ijcai.org/proceedings/2026/440 ; https://proceedings.mlr.press/v306/mancoridis26a.html

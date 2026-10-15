@@ -23,6 +23,10 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [10 — Candidate comparison and decision guide](10-candidate-comparison-and-decision-guide.md)
 - [11 — Taxonomy completion checklist](11-taxonomy-completion-checklist.md)
 
+### Mandatory gate before deep-diving into individual architectures
+
+Before analyzing each architecture in detail, first complete a coverage audit of the field: enumerate architecture families and important variants, distinguish architectures from training methods, inference algorithms, memory systems, and hardware optimizations, identify overlaps and missing categories, and record source-backed evidence for each. Mark coverage gaps explicitly. Only then proceed to comparable deep dives using the same template and evaluation criteria. This is a research-ordering rule, not a decision to favor any architecture.
+
 - [12 — Compact reasoning experiments and graph tests](12-compact-reasoning-experiments.md)
 - [13 — CPU/GPU backends and measured optimization](13-cpu-gpu-backends-and-measured-optimization.md)
 - [14 — Hybrid architecture hypotheses and test plan](14-hybrid-architecture-hypotheses-and-test-plan.md)
@@ -39,6 +43,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [24 — Automatic procedure discovery, program synthesis, proof-state reuse, and safe recomputation](24-automatic-procedure-discovery-program-synthesis-and-safe-reuse.md)
 - [25 — Self-maintaining skill libraries: evaluation, repair, and pruning](25-self-maintaining-skill-libraries-evaluation-repair-and-pruning.md)
 - [26 — Detecting false world models and revising beliefs](26-detecting-false-world-models-and-belief-revision.md) — belief revision, truth-maintenance dependencies, competing explanations, evidence-based self-correction, and tests for retracting wrong assumptions without stale conclusions or unnecessary revisions.
+- [27 — Controlled belief revision benchmark](27-controlled-belief-revision-benchmark.md) — compare belief-update strategies under controlled, repeatable conditions before choosing a revision mechanism.
 
 ## Evidence labels
 

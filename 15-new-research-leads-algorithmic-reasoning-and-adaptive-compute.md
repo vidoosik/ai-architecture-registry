@@ -376,3 +376,42 @@ Sources:
 2. **Most promising learning mechanism to study:** constrained program/rule synthesis with a verifier and a growing library of proven reusable procedures. Run it offline first.
 3. **Exploratory architecture, not a replacement yet:** NCA-style local state updates on a graph. Compare with explicit graph propagation; do not presume that decentralized means faster or more intelligent.
 4. **Keep evidence separated:** reported paper benchmark results are not measurements on our hardware or on our graph-world project. Every local claim needs a reproducible test.
+
+
+## 26. Neural Cellular Automata as explicit reasoning systems (2026 result)
+
+A newer paper, *Reasoning with Neural Cellular Automata* (September 2026 preprint), strengthens the case for studying NCA beyond pattern generation. It reports that recurrent cells with strictly local connectivity and asynchronous updates can solve visual reasoning tasks including large mazes, Sudoku, and ARC-AGI-1 in the authors' experimental setting. The paper also reports out-of-distribution generalization with larger grids, longer rollouts, and parallel trials, and describes dynamic compute recovery after damage.
+
+**What this adds beyond the general NCA family:** asynchronous local updates and the ability to use additional rollout steps or parallel trajectories are explicit parts of the tested reasoning setup. The work also identifies sample replay and stochastic perturbations as important to its reported generalization.
+
+**Limits:** this is a preprint and a visual/grid reasoning result. It does not establish that NCA can parse open-ended language, maintain factual provenance, or outperform explicit symbolic graph inference on CPU. Its behavior may depend on training regime and stochastic test-time computation.
+
+**Possible transfer experiment:** build a tiny graph-local recurrent update system where each node receives messages only from adjacent relations. Compare synchronous versus asynchronous updates, deterministic versus stochastic updates, and one trajectory versus multiple trajectories. Test long inference chains, multiple supporting paths, exceptions, and contradictory causes. Keep only changes that improve held-out accuracy at acceptable latency.
+
+Source:
+- *Reasoning with Neural Cellular Automata* (2026 preprint): https://arxiv.org/abs/2609.36126
+
+## 27. Epistemic Graph Neural Networks and relational reasoning beyond one path
+
+**Core idea:** treat a node's representation as an epistemic state—what is currently known or believed about that node—and design message passing to update that state from relational evidence. This is more specific than applying an ordinary GNN to a graph.
+
+**EpiGNN:** the ICLR 2025 paper *Systematic Relational Reasoning With Epistemic Graph Neural Networks* reports systematic generalization on relational link-prediction tasks, including tasks that aggregate evidence from multiple relational paths. Its motivation is important: standard message-passing GNNs often fail when test-time inference chains are longer than those seen during training, while some symbolic approaches assume that a single path is enough.
+
+**NoRA benchmark:** the NeurIPS 2025 benchmark *When No Paths Lead to Rome* challenges methods that reduce relational reasoning to composing paths. It introduces harder levels that require reasoning beyond path-based shortcuts. This is especially relevant to evaluating whether our graph system combines several pieces of evidence rather than matching one convenient chain.
+
+**Why it matters to our project:** this suggests two distinct test dimensions: (1) generalize to longer chains; (2) aggregate evidence across multiple paths, including paths that support competing conclusions. For our explicit graph, deterministic inference remains the baseline. EpiGNN is a candidate learned message-passing mechanism, not a reason to replace typed facts and transparent inference traces.
+
+**Risks:** the published tasks are relational prediction benchmarks, not general dialogue. Learned node states can be difficult to interpret, and multi-hop message passing costs grow with graph size and number of rounds. Test parameter count, latency, peak RAM, and evidence trace quality before considering a neural implementation.
+
+Sources:
+- EpiGNN, ICLR 2025: https://proceedings.iclr.cc/paper_files/paper/2025/hash/6590cb829f5ffef50050f3e5845fbb4c-Abstract-Conference.html
+- Official code and datasets: https://github.com/erg0dic/gnn-sg
+- NoRA, NeurIPS 2025: https://papers.neurips.cc/paper_files/paper/2025/hash/167856a2bb094d44872c4a992bad49d0-Abstract-Datasets_and_Benchmarks_Track.html
+- Systematic reasoning about relational domains with GNNs: https://arxiv.org/abs/2407.17396
+
+## Updated next research priorities
+
+- **Immediate low-cost tests for the existing graph:** entity renaming, fact-order permutation, graph isomorphism/relabeling, longer chains than training, and multiple-path evidence aggregation.
+- **Most useful new benchmark idea:** NoRA-style tests that break single-path shortcuts and force evidence from multiple relations or competing paths.
+- **Most useful learning candidate:** EpiGNN-like epistemic message passing, only as a controlled comparison against the current deterministic graph engine.
+- **Most speculative architecture candidate:** asynchronous graph-NCA updates. Study it as an experimental branch, not as the new core.

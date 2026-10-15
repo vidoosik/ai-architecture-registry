@@ -31,6 +31,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [17 — Equilibrium models, associative memory, VSA, and active inference](17-equilibrium-associative-memory-vsa-active-inference.md)
 
 - [18 — Formal reasoning, hypernetworks, meta-learning, sparse memory, and local learning](18-formal-reasoning-hypernetworks-meta-learning-sdm-local-learning.md)
+- [19 — Continual learning, adaptive memory, test-time training, architecture evolution, and continuous-depth models](19-continual-learning-adaptive-memory-test-time-training-nas-continuous-depth.md)
 
 ## Evidence labels
 

@@ -23,6 +23,10 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [10 — Candidate comparison and decision guide](10-candidate-comparison-and-decision-guide.md)
 - [11 — Taxonomy completion checklist](11-taxonomy-completion-checklist.md)
 
+- [12 — Compact reasoning experiments and graph tests](12-compact-reasoning-experiments.md)
+- [13 — CPU/GPU backends and measured optimization](13-cpu-gpu-backends-and-measured-optimization.md)
+- [14 — Hybrid architecture hypotheses and test plan](14-hybrid-architecture-hypotheses-and-test-plan.md)
+
 ## Evidence labels
 
 - **Established:** known architecture or technique with published work.

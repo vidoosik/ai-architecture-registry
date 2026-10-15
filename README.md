@@ -26,6 +26,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [12 — Compact reasoning experiments and graph tests](12-compact-reasoning-experiments.md)
 - [13 — CPU/GPU backends and measured optimization](13-cpu-gpu-backends-and-measured-optimization.md)
 - [14 — Hybrid architecture hypotheses and test plan](14-hybrid-architecture-hypotheses-and-test-plan.md)
+- [15 — New research leads: algorithmic reasoning and adaptive computation](15-new-research-leads-algorithmic-reasoning-and-adaptive-compute.md)
 
 ## Evidence labels
 

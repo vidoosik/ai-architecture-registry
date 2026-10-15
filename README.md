@@ -38,6 +38,7 @@ Explore architectures that could support grounded dialogue, compositional reason
 - [23 — Reusable reasoning modules, latent primitives, and computation reuse](23-reusable-reasoning-modules-latent-primitives-and-computation-reuse.md)
 - [24 — Automatic procedure discovery, program synthesis, proof-state reuse, and safe recomputation](24-automatic-procedure-discovery-program-synthesis-and-safe-reuse.md)
 - [25 — Self-maintaining skill libraries: evaluation, repair, and pruning](25-self-maintaining-skill-libraries-evaluation-repair-and-pruning.md)
+- [26 — Detecting false world models and revising beliefs](26-detecting-false-world-models-and-belief-revision.md) — belief revision, truth-maintenance dependencies, competing explanations, evidence-based self-correction, and tests for retracting wrong assumptions without stale conclusions or unnecessary revisions.
 
 ## Evidence labels
 

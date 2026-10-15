@@ -44,6 +44,7 @@ Before analyzing each architecture in detail, first complete a coverage audit of
 - [25 — Self-maintaining skill libraries: evaluation, repair, and pruning](25-self-maintaining-skill-libraries-evaluation-repair-and-pruning.md)
 - [26 — Detecting false world models and revising beliefs](26-detecting-false-world-models-and-belief-revision.md) — belief revision, truth-maintenance dependencies, competing explanations, evidence-based self-correction, and tests for retracting wrong assumptions without stale conclusions or unnecessary revisions.
 - [27 — Controlled belief revision benchmark](27-controlled-belief-revision-benchmark.md) — compare belief-update strategies under controlled, repeatable conditions before choosing a revision mechanism.
+- [28 — Supplied-list reconciliation and missing variants](28-supplied-list-reconciliation-and-missing-variants.md) — compares the user's candidate list against existing coverage, records newly explicit variants, separates architecture/training/inference/memory/system axes, and marks unsourced claims as unverified.
 
 ## Evidence labels
 

@@ -50,6 +50,8 @@ Before analyzing each architecture in detail, first complete a coverage audit of
 - [31 — Deep dive 02: Mixture of Experts (MoE)](31-deep-dive-02-mixture-of-experts-moe.md) — explains sparse routing, total vs active parameters, variants, trade-offs, and whether MoE fits a compact CPU-first system.
 - [32 — Deep dive 03: MHA, MQA, GQA and MLA](32-deep-dive-03-attention-mha-mqa-gqa-mla.md) — compares attention/KV-cache designs, memory formulas, trade-offs, CPU-first implications, and a controlled benchmark protocol.
 
+- [33 — Qwen2.5-1.5B formula registry and calculator validation plan](33-qwen2.5-1.5b-formula-registry-and-calculator-plan.md) — staged study of tokenizer, embeddings, decoder formulas, weights, training/inference paths, and a numerical validation protocol for the calculator.
+
 ## Evidence labels
 
 - **Established:** known architecture or technique with published work.
